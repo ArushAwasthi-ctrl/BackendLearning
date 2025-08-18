@@ -1,7 +1,20 @@
 import mongoose from "mongoose";
-import invokeDB  from "./db/dbCall.js";
-invokeDB();
-// import express from "express";
+import invokeDB from "./db/dbCall.js";
+import app from "./apps.js";
+invokeDB()
+  .then(() => {
+    app.on("error", (error) => {
+      console.error("Error listening to application", error);
+      throw error;
+    });
+    app.listen(process.env.PORT || 8000, () => {
+      console.log(`App is listening on port ${process.env.PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.log("Failed to connect with MongoDB", err);
+  });
+
 // const app = express();
 // // database connection written in IFEE nice module first way
 // (async () => {
