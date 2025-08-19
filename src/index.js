@@ -12,7 +12,7 @@ invokeDB()
     });
   })
   .catch((err) => {
-    console.log("Failed to connect with MongoDB", err);
+    console.log("Failed to connect with MongoDB in index.js" , err);
   });
 
 // const app = express();
