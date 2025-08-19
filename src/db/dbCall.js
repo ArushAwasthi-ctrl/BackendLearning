@@ -11,7 +11,7 @@ dotenv.config({
        console.log("Database connected succesfully");
        console.log(currentInstance.connection.host); 
     } catch (error) {
-        console.log("Erorr", error);
+        console.log("Error", error);
         process.exit(1);
         
     }
